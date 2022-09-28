@@ -10,15 +10,16 @@ const refs = {
 
 populateTextArea();
 refs.form.addEventListener('submit', onFormSubmit);
-refs.textarea.addEventListener('input', throttle(onTextareaInput, 500));
+refs.form.addEventListener('input', throttle(onTextareaInput, 500));
 refs.form.addEventListener('input', e => {
     formData[e.target.name] = e.target.value
 })
 
 function onFormSubmit(event) {
     event.preventDefault();
+    console.log({ email: refs.email.value, textarea: refs.textarea.value });
     event.target.reset();
-    localStorage.removeItem("feedback-form-state")
+    localStorage.removeItem("feedback-form-state");
 } 
 
 function onTextareaInput(event) {
