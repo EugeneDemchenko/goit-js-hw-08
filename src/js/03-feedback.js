@@ -17,7 +17,8 @@ refs.form.addEventListener('input', e => {
 
 function onFormSubmit(event) {
     event.preventDefault();
-    console.log({ email: refs.email.value, textarea: refs.textarea.value });
+    if(refs.email.value === '' && refs.textarea.value === '') { return } else {console.log({ email: refs.email.value, textarea: refs.textarea.value });}
+    
     event.target.reset();
     localStorage.removeItem("feedback-form-state");
 } 
